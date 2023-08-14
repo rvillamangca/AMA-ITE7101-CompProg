@@ -1,3 +1,3 @@
-C:/Users/monch/OneDrive/Documents/GitHub/Week-06/src/cmake-build-debug/CMakeFiles/src.dir
-C:/Users/monch/OneDrive/Documents/GitHub/Week-06/src/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/monch/OneDrive/Documents/GitHub/Week-06/src/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/ramonvillamangca/Desktop/My Projects/AMA-ITE7101-CompProg/Week-06/src/cmake-build-debug/CMakeFiles/src.dir
+/Users/ramonvillamangca/Desktop/My Projects/AMA-ITE7101-CompProg/Week-06/src/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/ramonvillamangca/Desktop/My Projects/AMA-ITE7101-CompProg/Week-06/src/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -14,6 +14,7 @@ using namespace std;
 inline void _pause() {
     cout << "Press any key to continue...";
     cin.get();
+    cout << endl;
 }
 inline void _flush_inputs() {
     cin.clear();
@@ -24,13 +25,14 @@ int main() {
 
     //Solution 01/1:
     /*int num;
-    cout << "Please enter an number (only \"Integers\" are allowed): ";
+    cout << endl << "Please enter an number (only \"Integers\" are allowed): ";
     cin >> num;
+    cout << endl;
     if (cin.fail()) {
         cout << "Yeah, I will";
     } else if (num==0) {
         cout << "Hello World";
-    } else if (num==1)
+    } else if (num==1) {
         cout << "I am groot";
     } else if (num==2) {
         cout << "To the Top";
@@ -46,6 +48,7 @@ int main() {
     /*int num;
     cout << "Please enter an number (only \"Integers\" are allowed): ";
     cin >> num;
+    cout << endl;
     if (cin.fail() || num<4)  cout << "Yeah, I will";
     else if (num==0) cout << "Hello World";
     else if (num==1) cout << "I am groot";
@@ -55,8 +58,9 @@ int main() {
 
     //Solution 02:
     /*int num;
-    cout << "Please enter an number (only \"Integers\" are allowed): ";
+    cout << endl << "Please enter an number (only \"Integers\" are allowed): ";
     cin >> num;
+    cout << endl;
     if (cin.fail()) {
         cout << "Yeah, I will";
     } else {
@@ -83,6 +87,7 @@ int main() {
     //Solution 03:
     /*float num1;
     float num2;
+    cout << endl;
     while (true) {
         cout << "Please enter the 1st number (only \"Numbers\" are allowed): ";
         cin >> num1;
@@ -98,16 +103,17 @@ int main() {
     }
     cout << endl << "The first number (" << num1 << ") divided by the second number (" << num2 << ") is equal to: " << num1 / num2 << "." << endl;*/
 
+
     //Solution 04:
     int num;
-    cout << "Please enter an number (only \"Integers\" are allowed): ";
+    cout << endl << "Please enter an number (only \"Integers\" are allowed): ";
     cin >> num;
     cout << ((cin.fail() || num>4) ? "Yeah I will" : (num==0 ? "Hello World" :
             (num==1 ? "I am groot" : (num==2 ? "To the top" :
             (num==3 ? "Where is the horizon" : "I don't know")))));
 
     _flush_inputs();
-    cout << endl;
+    cout << endl << endl;
     _pause();
 
     return 0;
