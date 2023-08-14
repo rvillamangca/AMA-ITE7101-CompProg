@@ -8,8 +8,6 @@
  * ************************************************************************************/
 
 #include <iostream>
-#include <string>
-#include <typeinfo>
 
 using namespace std;
 
@@ -29,7 +27,7 @@ int main() {
     cout << "Please enter an number (only \"Integers\" are allowed): ";
     cin >> num;
     if (cin.fail()) {
-        cout << "Yeah, I will!";
+        cout << "Yeah, I will";
     } else if (num==0) {
         cout << "Hello World";
     } else if (num==1)
@@ -41,14 +39,14 @@ int main() {
     } else if (num==4) {
         cout << "I don't know";
     } else {
-        cout << "Yeah, I will!";
+        cout << "Yeah, I will";
     }*/
 
     //Solution 01/2:
     /*int num;
     cout << "Please enter an number (only \"Integers\" are allowed): ";
     cin >> num;
-    if (cin.fail() || num<4)  cout << "Yeah, I will!";
+    if (cin.fail() || num<4)  cout << "Yeah, I will";
     else if (num==0) cout << "Hello World";
     else if (num==1) cout << "I am groot";
     else if (num==2) cout << "To the Top";
@@ -60,7 +58,7 @@ int main() {
     cout << "Please enter an number (only \"Integers\" are allowed): ";
     cin >> num;
     if (cin.fail()) {
-        cout << "Yeah, I will!";
+        cout << "Yeah, I will";
     } else {
         switch (num) {
             case 0:
@@ -78,12 +76,12 @@ int main() {
             case 4:
                 cout << "I don't know";
             default:
-                cout << "Yeah, I will!";
+                cout << "Yeah, I will";
         }
     }*/
 
-    //Solution 02:
-    float num1;
+    //Solution 03:
+    /*float num1;
     float num2;
     bool stop = false;
     while (true) {
@@ -99,7 +97,15 @@ int main() {
         if (cin.fail() || num2==0) _flush_inputs();
         else break;
     }
-    cout << endl << "The first number (" << num1 << ") divided by the second number (" << num2 << ") is equal to: " << num1 / num2 << "." << endl;
+    cout << endl << "The first number (" << num1 << ") divided by the second number (" << num2 << ") is equal to: " << num1 / num2 << "." << endl;*/
+
+    //Solution 04:
+    int num;
+    cout << "Please enter an number (only \"Integers\" are allowed): ";
+    cin >> num;
+    cout << ((cin.fail() || num>4) ? "Yeah I will" : (num==0 ? "Hello World" :
+            (num==1 ? "I am groot" : (num==2 ? "To the top" :
+            (num==3 ? "Where is the horizon" : "I don't know")))));
 
     _flush_inputs();
     cout << endl;

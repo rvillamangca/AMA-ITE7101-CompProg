@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/monch/OneDrive/Documents/GitHub/AMA-ITE7101-CompProg/Week-06/src
+# Install script for directory: C:/Users/monch/OneDrive/Documents/GitHub/Week-06/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/monch/OneDrive/Documents/GitHub/AMA-ITE7101-CompProg/Week-06/src/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/monch/OneDrive/Documents/GitHub/Week-06/src/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

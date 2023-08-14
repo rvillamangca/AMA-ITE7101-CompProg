@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/monch/OneDrive/Documents/GitHub/AMA-ITE7101-CompProg/Week-06/src/cmake-build-debug",
-		"source" : "C:/Users/monch/OneDrive/Documents/GitHub/AMA-ITE7101-CompProg/Week-06/src"
+		"build" : "C:/Users/monch/OneDrive/Documents/GitHub/Week-06/src/cmake-build-debug",
+		"source" : "C:/Users/monch/OneDrive/Documents/GitHub/Week-06/src"
 	},
 	"version" : 
 	{
