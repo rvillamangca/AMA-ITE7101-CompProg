@@ -1,51 +1,109 @@
 /* **************************************************************************************
  * @author: Ramon Villamangca
- * @app name: Laboratory 003
+ * @app name: Laboratory 005
  * @app desc: Completion of a laboratory exercise for ITE-17101 (Computer Programming)
  * @history:
- *  - 2023/08/12 | Solutions for Lab Exercise
- *      -- Laboratory Exercise 004
- * ***********************************************************************************/
+ *  - 2023/08/14 | Solutions for Lab Exercise
+ *      -- Laboratory Exercise 005
+ * ************************************************************************************/
 
 #include <iostream>
-#include <iomanip>
-
-// following #define statement only works in MacOS(arm64)
-// please comment this #define if in Windows(x86)
-#define _pause() system("read -n 1 -s -p \"Press any key to continue...\"" );
+#include <string>
+#include <typeinfo>
 
 using namespace std;
 
-int main() {
-
-    //Solution 01:
-    /*short section;
-    cout << endl << "Please enter your section: ";
-    cin >> section;
-    cout << endl << "*** Section: " << section << " ***" << endl;*/
-
-    //Solution 02:
-    /*float dailyBudget;
-    cout << endl << "Please enter your daily budget: ";
-    cin >> dailyBudget;
-    cout << fixed << setprecision(2);
-    cout << endl << "Your daily budget squared is: "
-         << dailyBudget * dailyBudget << endl;*/
-
-    //Solution 03:
-    string userName, userPass, userAddress; // only 3 variables
-    cout << endl << "Please enter your name: ";
-    getline(cin,userName);
-    cout << "Please enter your password: ";
-    getline(cin,userPass);
-    cout << "Please enter your address: ";
-    getline(cin,userAddress);
-    cout << endl << "Hi, I am " << userName << ". I live at "
-         << userAddress << "." << endl;
-
+inline void _pause() {
+    cout << "Press any key to continue...";
+    cin.get();
+}
+inline void _flush_inputs() {
     cin.clear();
     fflush(stdin);
+}
+
+int main() {
+
+    //Solution 01/1:
+    /*int num;
+    cout << "Please enter an number (only \"Integers\" are allowed): ";
+    cin >> num;
+    if (cin.fail()) {
+        cout << "Yeah, I will!";
+    } else if (num==0) {
+        cout << "Hello World";
+    } else if (num==1)
+        cout << "I am groot";
+    } else if (num==2) {
+        cout << "To the Top";
+    } else if (num==3) {
+        cout << "Where is the horizon";
+    } else if (num==4) {
+        cout << "I don't know";
+    } else {
+        cout << "Yeah, I will!";
+    }*/
+
+    //Solution 01/2:
+    /*int num;
+    cout << "Please enter an number (only \"Integers\" are allowed): ";
+    cin >> num;
+    if (cin.fail() || num<4)  cout << "Yeah, I will!";
+    else if (num==0) cout << "Hello World";
+    else if (num==1) cout << "I am groot";
+    else if (num==2) cout << "To the Top";
+    else if (num==3) cout << "Where is the horizon";
+    else cout << "I don't know";*/
+
+    //Solution 02:
+    /*int num;
+    cout << "Please enter an number (only \"Integers\" are allowed): ";
+    cin >> num;
+    if (cin.fail()) {
+        cout << "Yeah, I will!";
+    } else {
+        switch (num) {
+            case 0:
+                cout << "Hello World";
+                break;
+            case 1:
+                cout << "I am groot";
+                break;
+            case 2:
+                cout << "To the Top";
+                break;
+            case 3:
+                cout << "Where is the horizon";
+                break;
+            case 4:
+                cout << "I don't know";
+            default:
+                cout << "Yeah, I will!";
+        }
+    }*/
+
+    //Solution 02:
+    float num1;
+    float num2;
+    bool stop = false;
+    while (true) {
+        cout << "Please enter the 1st number (only \"Numbers\" are allowed): ";
+        cin >> num1;
+        if (cin.fail()) _flush_inputs();
+        else break;
+    }
+    cout << endl;
+    while (true) {
+        cout << "Please enter the 2nd number (only \"Numbers except 0\" are allowed): ";
+        cin >> num2;
+        if (cin.fail() || num2==0) _flush_inputs();
+        else break;
+    }
+    cout << endl << "The first number (" << num1 << ") divided by the second number (" << num2 << ") is equal to: " << num1 / num2 << "." << endl;
+
+    _flush_inputs();
     cout << endl;
     _pause();
+
     return 0;
 }
