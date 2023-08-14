@@ -83,7 +83,6 @@ int main() {
     //Solution 03:
     /*float num1;
     float num2;
-    bool stop = false;
     while (true) {
         cout << "Please enter the 1st number (only \"Numbers\" are allowed): ";
         cin >> num1;
