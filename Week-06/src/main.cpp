@@ -24,7 +24,7 @@ inline void _flush_inputs() {
 int main() {
 
     //Solution 01/1:
-    /*int num;
+    int num;
     cout << endl << "Please enter an number (only \"Integers\" are allowed): ";
     cin >> num;
     cout << endl;
@@ -42,7 +42,7 @@ int main() {
         cout << "I don't know";
     } else {
         cout << "Yeah, I will";
-    }*/
+    }
 
     //Solution 01/2:
     /*int num;
@@ -105,7 +105,7 @@ int main() {
 
 
     //Solution 04:
-    int num;
+    /*int num;
     cout << endl << "Please enter an number (only \"Integers\" are allowed): ";
     cin >> num;
     cout << ((cin.fail() || num>4) ? "Yeah I will" : (num==0 ? "Hello World" :
@@ -114,7 +114,7 @@ int main() {
 
     _flush_inputs();
     cout << endl << endl;
-    _pause();
+    _pause();*/
 
     return 0;
 }
