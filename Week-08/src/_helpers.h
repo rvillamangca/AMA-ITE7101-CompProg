@@ -4,7 +4,7 @@
  * @app desc: Completion of a laboratory exercise for ITE-7101 (Computer Programming)
  *            
  * @history:
- *  - 2023/08/20 - 08:28 | Draft #1
+ *  - 2023/08/20 - 08:28 | Final
  * ************************************************************************************/
 
 #ifndef _HELPERS_H
