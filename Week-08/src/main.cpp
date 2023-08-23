@@ -4,7 +4,7 @@
  * @app desc: Completion of a laboratory exercise for ITE-7101 (Computer Programming)
  *            
  * @history:
- *  - 2023/08/21 - 13:02 | Draft #1
+ *  - 2023/08/21 - 13:02 | Final
  * ************************************************************************************/
 
 #include <iostream>         // to basic input/output
