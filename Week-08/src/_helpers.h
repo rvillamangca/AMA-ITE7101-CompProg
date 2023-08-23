@@ -1,8 +1,8 @@
 /* ************************************************************************************
  * @author: Ramon Villamangca
- * @app name: Enrollment Slip Program
+ * @app name: Helper Functions Program
  * @app desc: Completion of a laboratory exercise for ITE-7101 (Computer Programming)
- *            Laboratory Exercise 006
+ *            
  * @history:
  *  - 2023/08/20 - 08:28 | Draft #1
  * ************************************************************************************/
