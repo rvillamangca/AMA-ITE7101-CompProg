@@ -106,10 +106,10 @@ void bookSeat() {
     string msg = "\nEnter a seat number to reserve, from 1 to 35: ";
     cout << msg;
     do {
+        _flush_inputs();
         getline(cin,s);
         if (s.empty()) {
             cout << msg;
-
         } else if (!isdigit(s.at(0))) {
             cout << endl << "ERROR: What you entered is not a number." << msg;
         } else {
@@ -124,7 +124,17 @@ void bookSeat() {
                 } else {
                     seat[r][c] = 0;
                     cout << endl << "Seat succefully reserved!" << endl;
-                    return;
+                    cout << endl << "Press \"Y/y\" if you want to book another seat: ";
+                    _flush_inputs();
+                    getline(cin,s);
+                    do {
+                        if (s.length()==1 && (s.at(0)=='y' || s.at(0)=='Y')) {
+                            cout << msg;
+                            break;
+                        } else {
+                            return;
+                        }
+                    } while(true);
                 }
             }
         }
@@ -141,7 +151,6 @@ void cancelSeat() {
         getline(cin,s);
         if (s.empty()) {
             cout << msg;
-
         } else if (!isdigit(s.at(0))) {
             cout << endl << "ERROR: What you entered is not a number." << msg;
         } else {
