@@ -48,13 +48,18 @@ public:
     double getArea(void); 
 };
 
-
 std::vector<std::string>Polygon::pTypes {
     "Triangle","Quadrilateral","Pentagon","Hexagon", "Heptagon",
     "Octagon", "Nonagon", "Decagon", "Hendecagon", "Dodegacon",
     "Tridecagon", "Tetradecagon", "Pentadecagon", "Hexadecagon",
     "Heptadecagon", "Octadecagon", "Enneadecagon", "Icosagon"
-}; 
+};
+
+Polygon:Polygon() {
+   this->pName = 
+   this->pType = 
+   
+}
 
 
 
