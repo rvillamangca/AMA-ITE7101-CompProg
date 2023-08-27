@@ -84,6 +84,12 @@ void Polygon::setSideNum(int num) {
 std::string Polygon::getName() { return this->pName; }
 double Polygon::getSideLength { return this->sideLength; }
 std::string Polygon::getColor { return this->pColor; }
+int Polygon::getSideNum() { return this->sideNum; }
 
+std::string Polygon::getType() {
+    int i = this->sideNum - 3;
+    if (i >= pTypes.size) return "" + (this->sideNum) + "-gon";
+    return pTypes[i];
+}
 
 #endif // _POLYGON_H
