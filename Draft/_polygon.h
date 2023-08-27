@@ -107,7 +107,7 @@ std::ostream &operator<<(std::ostream &o, Polygon &p) {
        << "-----------------------------------\n"
        << "  Name:\t\t" << p.getName() << "\n"
        << "  Type:\t\t" << p.getType() << "\n"
-       << ". Side Number:\t" << p.getSideNum << "\n"
+       << ". Side Number:\t" << p.getSideNum() << "\n"
        << "  Side Length:\t" << p.getSideLength() << "\n"
        << "  Perimeter:\t" << p.getPerimeter() << "\n"
        << "  Area:\t\t" << p.getArea() << "\n"
