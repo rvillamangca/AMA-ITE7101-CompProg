@@ -75,7 +75,15 @@ void Polygon::setColor(std::string color) { this->pColor = color; }
 void Polygon::setSideNum(int num) { 
     if (num > 2) { 
         this->sideNum = num; 
-    } 
+    } else {
+        std::cout << "Polygon side number will be set to minimum: 3";
+        this->sideNum = 3;
+    }
+}
+
+std::string Polygon::getName() { return this->pName; }
+double Polygon::getSideLength { return this->sideLength; }
+std::string Polygon::getColor { return this->pColor; }
 
 
 #endif // _POLYGON_H
