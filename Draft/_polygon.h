@@ -13,6 +13,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cmath>
 #include "_helpers.h"
 
 
@@ -87,11 +88,17 @@ std::string Polygon::getColor { return this->pColor; }
 int Polygon::getSideNum() { return this->pSideNum; }
 
 std::string Polygon::getType() {
-    int i = this->pSideNum - 3;
+    auto i = this->pSideNum - 3;
     if (i >= pTypes.size) return "" + (this->pSideNum) + "-gon";
     return pTypes[i];
 }
 
 double Polygon::getPerimeter() { return double(this->pSideNum) * (this->pSideLength); }
+
+double Polygon::getArea() {
+    double n = this->pSideNum;
+    double s = this->pSideLength;
+    return (n * s * s) / (4 * tan(3.14159/n));
+}
 
 #endif // _POLYGON_H
