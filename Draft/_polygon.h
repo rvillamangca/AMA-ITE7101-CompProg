@@ -40,10 +40,10 @@ public:
     void setSideLength(double);
     void setColor(std::string);
     std::string getName(void);
-    std::string getType(void);
     int getSideNum(void);
     double getSideLength(void);
-    std::string getColot(void);
+    std::string getColor(void);
+    std::string getType(void);
     double getPerimeter(void);
     double getArea(void); 
 };
