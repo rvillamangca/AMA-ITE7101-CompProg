@@ -69,6 +69,9 @@ Polygon::Polygon(std::string name, int num; double len; std::string color) {
     this->setColor(color);
 }
 
-
+void Polygon::setName(std::string name) { this->pName = name; }
+void Polygon::setSideLength(double len) { this->pLenght = len; }
+void Polygon::setColor(std::string color) { this->pColor = color; }
+void Poly
 
 #endif // _POLYGON_H
