@@ -74,17 +74,17 @@ void Polygon::setSideLength(double len) { this->pSideLength= len; }
 void Polygon::setColor(std::string color) { this->pColor = color; }
 void Polygon::setSideNum(int num) { 
     if (num > 2) { 
-        this->sideNum = num; 
+        this->pSideNum = num; 
     } else {
         std::cout << "Polygon side number will be set to minimum: 3";
-        this->sideNum = 3;
+        this->pSideNum = 3;
     }
 }
 
 std::string Polygon::getName() { return this->pName; }
-double Polygon::getSideLength { return this->sideLength; }
+double Polygon::getSideLength { return this->pSideLength; }
 std::string Polygon::getColor { return this->pColor; }
-int Polygon::getSideNum() { return this->sideNum; }
+int Polygon::getSideNum() { return this->pSideNum; }
 
 std::string Polygon::getType() {
     int i = this->pSideNum - 3;
