@@ -70,8 +70,12 @@ Polygon::Polygon(std::string name, int num; double len; std::string color) {
 }
 
 void Polygon::setName(std::string name) { this->pName = name; }
-void Polygon::setSideLength(double len) { this->pLenght = len; }
+void Polygon::setSideLength(double len) { this->pSideLength= len; }
 void Polygon::setColor(std::string color) { this->pColor = color; }
-void Poly
+void Polygon::setSideNum(int num) { 
+    if (num > 2) { 
+        this->sideNum = num; 
+    } 
+
 
 #endif // _POLYGON_H
