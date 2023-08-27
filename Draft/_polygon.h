@@ -24,7 +24,6 @@ private:
 
     // regular properties
     std::string pName;
-    std::string pType;
     int pSideNum;
     double pSideLength;
     std::string pColor;
@@ -60,7 +59,14 @@ Polygon:Polygon() {
     this->setName("");
     this->setSideNum(3);
     this->setSideLength(1.0);
-    
+    this->setColor("White");
+}
+
+Polygon::Polygon(std::string name, int num; double len; std::string color) {
+    this->setName(name);
+    this->setSideNum(num);
+    this->setSideLength(len);
+    this->setColor(color);
 }
 
 
