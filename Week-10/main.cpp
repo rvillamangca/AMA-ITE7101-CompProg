@@ -4,77 +4,64 @@
  * @app desc: Completion of a laboratory exercise for ITE-7101 (Computer Programming)
  *
  * @history:
- *  - 2023/08/26 - 13:02 | Draft 1
+ *  - 2023/08/27 - 13:02 | Draft 1
  * ************************************************************************************/
 
-#include <iostream>         // to basic input/output
-#include <string>           // to access the STL string class methods
-#include <array>            // to access the STL array class methods
-#include <cmath>            // to access basic math functions
-#include "_helpers.h"       // to access the helper functions
+#include <iostream>             // to basic input/output
+#include <string>               // to access the STL string class methods
+#include <array>                // to access the STL array class methods
+#include <cmath>                // to access basic math functions
+#include "_helpers.h"           // to access the helper functions
+#include "_legged_mammal.h"     // to access the Legged Mammal class
+#include "_person.h"            // to access the Person class
+#include "_polygon.h"
 
 
 using namespace std;
 
 
-// programs functions prototype
-array<int,3> prob1(array<int,6>);   // solution function for problem #1
-string prob2(short);                // solution function for problem #2
-int prob3(int);                     // solution function for problem #3
-
 int main() {
+
+    auto m = LeggedMammal("Dog",4,"medium",true);
+
+    cout << endl << m;
+
+    auto p = Person("Ramon Villamangca",MALE,50,"Engineer");
+
+    cout << endl << p;
+
+    //auto pn = Polygon("Your Polygon",4,1,"Blue");
+    auto pn = Polygon();
+
+    cout << endl << pn;
+
+    /*
     do {
         _clrscr();
-        cout << "--- MAIN MENU ---------------------------\n\n";
-        cout << "   1. Pair-wise Division of Six Numbers." << endl;
-        cout << "   2. Separation of Digits." << endl;
-        cout << "   3. Nth Fibonacci Number." << endl;
+        cout << "--- Class Testing Program ---------------\n\n";
+        cout << "   1. Legged Mammal Class" << endl;
+        cout << "   2. Person Class" << endl;
+        cout << "   3. Polygon Class" << endl;
         cout << "   Q: Exit Program" << endl << endl;
         cout << "-----------------------------------------\n\n";
-        cout << "Select the problem number you want to execute or 'Q' to quit: ";
+        cout << "Select the number of the Class you want to test or 'Q' to quit: ";
         char ans = (char) getchar();
 
         if (ans == '1') {
             _clrscr();
-            array<int,6> ns;
-            cout << "\n-- Pair-wise Division of Six Numbers --\n\n";
-            for (int i = 0; i < ns.size(); i++) {
-                cout << "Enter integer # " << i+1 << ": ";
-                cin >> ns[i];
-                cout << endl;
-            }
-            auto qs = prob1(ns);
-            cout << "\nBehold the Mathematics...\n\n";
-            cout << "---------------------------\n\n";
-            for (int i = 0; i < qs.size(); i++) {
-                cout << "   " << ns[i*2] << " / " << ns[i*2+1] << " = " << qs[i] << endl;
-            }
-            cout << endl << endl;
+            
             _flush_inputs();
             _pause();
 
         } else if (ans == '2') {
             _clrscr();
-            short n;
-            cout << "\n-- Separation of Digits --\n\n";
-            cout << "Enter a number from 10 to 99: ";
-            cin >> n;
-            cout << "\n-------------------------------------------------\n";
-            cout << "Your number is: " << n << " and separated shall be: '" << prob2(n) << "'.";
-            cout << "\n-------------------------------------------------\n\n";
+            
             _flush_inputs();
             _pause();
 
         } else if (ans == '3') {
             _clrscr();
-            short n;
-            cout << "\n-- Nth Fibonacci Number --\n\n";
-            cout << "Enter a number: ";
-            cin >> n;
-            cout << "\n---------------------------------------\n";
-            cout << " The " << n << (n==1 ? "st" : n==2 ? "nd" : n==3 ? "rd" : "th"); 
-            cout << " Fibonacci Number is: " << prob3(n);  
-            cout << "\n---------------------------------------\n\n";
+            
             _flush_inputs();
             _pause();
         } else if (ans == 'q' || ans == 'Q') {
@@ -84,29 +71,7 @@ int main() {
     
     _nap();
     _clrscr();
-    
+    */
+
     return 0;
-}
-
-array<int,3> prob1(array<int,6> xs) {
-    array<int,3> ys;
-    for (int i = 0; i < ys.size(); i++) ys[i] = xs[i*2] / xs[i*2+1];
-    return ys;
-}
-
-string prob2(short x) {
-    string s;
-    for (auto c : to_string(int(x))) {
-        s.push_back(c);
-        s.push_back(' ');
-    }
-    s.pop_back();
-    return s;
-}
-
-int prob3(int x) {
-    // Using Binet's Formula
-    auto s = sqrt(5.0);
-    auto p = (s + 1.0) / 2.0;
-    return int(((pow(p,x) - pow(-p,-x))/s));
 }

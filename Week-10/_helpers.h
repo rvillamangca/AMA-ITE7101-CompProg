@@ -7,18 +7,20 @@
  *  - 2023/08/20 - 08:28 | Completed
  * ************************************************************************************/
 
-#ifndef _HELPERS_H
-#define _HELPERS_H
-
 #ifndef _WIN32
 #define _WIN32 0
 #endif
+
+#ifndef _HELPERS_H
+#define _HELPERS_H
 
 #define BARLENGTH 40
 #define _nap() sleep(2)
 #define _sleep() sleep(5)
 
 #include <iostream>
+#include <string>
+#include <algorithm>
 #include <unistd.h>
 
 void _pause() {
@@ -44,6 +46,11 @@ void _clrscr() {
 void _flush_inputs() {
     std::cin.clear();
     fflush(stdin);
+}
+
+std::string _to_lower(std::string s) {
+    transform(s.begin(),s.end(),s.begin(), ::tolower);
+    return s;
 }
 
 #endif //_HELPERS_H
