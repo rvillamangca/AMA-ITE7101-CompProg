@@ -87,9 +87,11 @@ std::string Polygon::getColor { return this->pColor; }
 int Polygon::getSideNum() { return this->sideNum; }
 
 std::string Polygon::getType() {
-    int i = this->sideNum - 3;
-    if (i >= pTypes.size) return "" + (this->sideNum) + "-gon";
+    int i = this->pSideNum - 3;
+    if (i >= pTypes.size) return "" + (this->pSideNum) + "-gon";
     return pTypes[i];
 }
+
+double Polygon::getPerimeter() { return double(this->pSideNum) * (this->pSideLength); }
 
 #endif // _POLYGON_H
