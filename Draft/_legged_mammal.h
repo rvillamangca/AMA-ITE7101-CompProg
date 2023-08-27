@@ -110,4 +110,4 @@ std::ostream &operator<<(std::ostream &o, LeggedMammal &m) {
     return o;
 }
 
-#endif //_LEGGED_MAMMAL_H
+#endif // _LEGGED_MAMMAL_H

@@ -94,4 +94,4 @@ std::ostream &operator<<(std::ostream &o, Person &p) {
     return o;
 }
 
-#endif //_PERSON_H
+#endif // _PERSON_H
