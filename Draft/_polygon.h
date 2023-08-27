@@ -89,8 +89,8 @@ int Polygon::getSideNum() { return this->pSideNum; }
 
 std::string Polygon::getType() {
     auto i = this->pSideNum - 3;
-    if (i >= pTypes.size) return "" + (this->pSideNum) + "-gon";
-    return pTypes[i];
+    if (i < pTypes.size) return pTypes[i];
+    return "" + (this->pSideNum) + "-gon";
 }
 
 double Polygon::getPerimeter() { return double(this->pSideNum) * (this->pSideLength); }
