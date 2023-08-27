@@ -41,6 +41,7 @@ public:
     void setSideLength(double);
     void setColor(std::string);
     std::string getName(void);
+    std::string getType(void);
     int getSideNum(void);
     double getSideLength(void);
     std::string getColot(void);
@@ -56,9 +57,10 @@ std::vector<std::string>Polygon::pTypes {
 };
 
 Polygon:Polygon() {
-   this->pName = 
-   this->pType = 
-   
+    this->setName("");
+    this->setSideNum(3);
+    this->setSideLength(1.0);
+    
 }
 
 
