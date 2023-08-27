@@ -101,4 +101,19 @@ double Polygon::getArea() {
     return (n * s * s) / (4 * tan(3.14159/n));
 }
 
+std::ostream &operator<<(std::ostream &o, Polygon &p) {
+    o  << "-----------------------------------\n"
+       << "      Member of Polygon Class\n" 
+       << "-----------------------------------\n"
+       << "  Name:\t\t" << p.getName() << "\n"
+       << "  Type:\t\t" << p.getType() << "\n"
+       << ". Side Number:\t" << p.getSideNum << "\n"
+       << "  Side Length:\t" << p.getSideLength() << "\n"
+       << "  Perimeter:\t" << p.getPerimeter() << "\n"
+       << "  Area:\t\t" << p.getArea() << "\n"
+       << ". Color\t\t" << p.getColor() << "\n"
+       << "-----------------------------------";
+    return o;
+}
+
 #endif // _POLYGON_H
