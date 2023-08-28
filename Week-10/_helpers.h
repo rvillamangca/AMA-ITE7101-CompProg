@@ -53,4 +53,10 @@ std::string _to_lower(std::string s) {
     return s;
 }
 
+std::string _to_proper(std::string s) {
+    transform(s.begin(),s.end(),s.begin(), ::tolower);
+    s[0] = ::toupper(s[0]);
+    return s;
+}
+
 #endif //_HELPERS_H

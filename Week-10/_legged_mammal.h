@@ -5,6 +5,7 @@
  *
  * @history:
  *  - 2023/08/27 - 08:05 | Draft 1
+ *  - 2023/08/28 - 13:42 | Final
  * ************************************************************************************/
 
 #ifndef _LEGGED_MAMMAL_H
@@ -20,7 +21,7 @@ class LeggedMammal
 {
 private:
     // static properties
-   static std::vector<std::string> furKinds;
+    static std::vector<std::string> furKinds;
 
     // regular properties
     std::string species;
@@ -66,14 +67,14 @@ LeggedMammal::LeggedMammal(std::string species, short legNumber, std::string fur
     this->setHasTail(hasTail);
 }
 
-LeggedMammal::~LeggedMammal() { }
+LeggedMammal::~LeggedMammal() { std::cout << this->species << " is destroyed!!!\n"; }
 
 void LeggedMammal::setSpecies(std::string species) { this->species = species; }
 void LeggedMammal::setLegNumber(short legNumber) { this->legNumber = legNumber; }
 void LeggedMammal::setHasTail(bool hasTail) { this->hasTail = hasTail; }
 void LeggedMammal::setFurKind(std::string furKind) {
     if (isFurKind(furKind)) {
-        this->furKind = furKind;
+        this->furKind = _to_proper(furKind);
     } else {
         std::cout << "\"" << furKind << "\" Fur Kind does not exist. Fur Kind set to \"Thick\"...";
         this->furKind = "Thick";
@@ -93,14 +94,14 @@ std::string LeggedMammal::getHasTail() {
 }
 
 std::ostream &operator<<(std::ostream &o, LeggedMammal &m) {
-    o  << "---------------------------------\n"
-       << "  Member of Legged Mammal Class\n" 
-       << "---------------------------------\n"
-       << "  Species:\t" << m.getSpecies() << "\n"
-       << "  Leg Number:\t" << m.getLegNumber() << "\n"
-       << "  Fur Kind:\t" << m.getFurKind() << "\n"
-       << "  Has Tail:\t" << m.getHasTail() << "\n"
-       << "---------------------------------";
+    o  << "-------------------------------------\n"
+       << "    Member of Legged Mammal Class\n" 
+       << "-------------------------------------\n"
+       << "  Species:\t\t" << m.getSpecies() << "\n"
+       << "  Number of Legs:\t" << m.getLegNumber() << "\n"
+       << "  Fur Kind:\t\t" << m.getFurKind() << "\n"
+       << "  Has Tail:\t\t" << m.getHasTail() << "\n"
+       << "-------------------------------------";
     return o;
 }
 

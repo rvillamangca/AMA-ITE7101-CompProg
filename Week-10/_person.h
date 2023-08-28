@@ -5,6 +5,7 @@
  *
  * @history:
  *  - 2023/08/27 - 13:09 | Draft 1
+ *  - 2023/08/28 - 13:42 | Final
  * ************************************************************************************/
 
 #ifndef _PERSON_H
@@ -31,7 +32,6 @@ public:
     // constructor/destructor
     Person(void);
     Person(std::string, bool, short, std::string);
-    ~Person(void);
 
     // setters/getters
     void setName(std::string);
@@ -44,7 +44,7 @@ public:
     std::string getOccupation(void);
 
     // methods
-    std::string lifeStage();  
+    std::string ageRange();  
 };
 
 Person::Person() : Person("No Name",MALE,0,"None") { }
@@ -54,8 +54,6 @@ Person::Person(std::string name, bool gender, short age, std::string occupation)
     this->setAge(age);
     this->setOccupation(occupation);
 }
-
-Person::~Person() { }
 
 void Person::setName(std::string name) { this->name = name; }
 void Person::setGender(bool gender) { this->gender = gender; }
@@ -67,7 +65,7 @@ std::string Person::getGender() { return this->gender ? "Female" : "Male"; }
 short Person::getAge() { return this->age; }
 std::string Person::getOccupation() { return this->occupation; }
 
-std::string Person::lifeStage() {
+std::string Person::ageRange() {
     if (this->age < 2) return "Baby";
     if (this->age < 13) return "Child";
     if (this->age < 21) return "Adolescent";
@@ -76,15 +74,15 @@ std::string Person::lifeStage() {
 
 
 std::ostream &operator<<(std::ostream &o, Person &p) {
-    o  << "---------------------------------\n"
-       << "      Member of Person Class\n" 
-       << "---------------------------------\n"
+    o  << "-------------------------------------\n"
+       << "        Member of Person Class\n" 
+       << "-------------------------------------\n"
        << "  Name:\t\t" << p.getName() << "\n"
        << "  Gender:\t" << p.getGender() << "\n"
        << "  Age:\t\t" << p.getAge() << "\n"
+       << "  Age Range:\t" << p.ageRange() << "\n"
        << "  Occupation:\t" << p.getOccupation() << "\n"
-       << "  Life Stage:\t" << p.lifeStage() << "\n"
-       << "---------------------------------";
+       << "-------------------------------------";
     return o;
 }
 
