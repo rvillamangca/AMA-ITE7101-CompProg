@@ -22,45 +22,53 @@ using namespace std;
 
 int main() {
 
-    auto dog = Dog();
 
-    cout << dog;
-
-    _pause();
-
-    /*do {
+    do {
         _clrscr();
-        cout << "--- Class Testing Program ---------------\n\n";
-        cout << "   1. Legged Mammal Class" << endl;
-        cout << "   2. Person Class" << endl;
-        cout << "   3. Polygon Class" << endl;
+        cout << endl << "---" << "\033[1;31m" << " SubClass Testing Program "; 
+        cout << "\033[1;0m" << "----------------------------\n\n";
+        cout << "   1. Dog Class (Inherited from Legged Mammal Class)" << endl;
+        cout << "   2. Student Class (Inherited from Person Class)" << endl;
         cout << "   Q: Exit Program" << endl << endl;
-        cout << "-----------------------------------------\n\n";
-        cout << "Select the number of the Class you want to test or 'Q' to quit: ";
+        cout << "---------------------------------------------------------\n\n";
+        cout << "Select the number of the SubClass you want to test or 'Q' to quit: ";
         char ans = (char) getchar();
 
         if (ans == '1') {
             _clrscr();
-            auto dog = new LeggedMammal("Dog",2,"medium",true);
-            cout<< "Here is a dog for you: " << endl << *dog << endl << endl; 
-            auto cat = new LeggedMammal("Kat",2,"liGht",true);;
-            cat->setSpecies("Cat");
-            cout << "Here is a cat for you: " << "This " << cat->getSpecies() << " has " << _to_lower(cat->getFurKind()) << " fur." << endl << endl;
-            cout << "Creating a monster...\t";
-            auto monster = new LeggedMammal();
-            monster->setLegNumber(25);
-            monster->setHasTail(false);
-            monster->setFurKind("Horible");
-            cout << endl << endl << "Here is a monster for you: " << endl << *monster;
-            monster->setSpecies("Monster");
-            cout << endl;    
-            delete(monster);   
-            cout << endl;     
+            auto dog1 = Dog("Bob","Saint Bernard","Thick",XLARGE,true,25,false);
+            cout << endl << "Dog #1" << endl << dog1 << endl << endl; 
+            auto dog2 = Dog("Jack","Hairless Terrier","None",SMALL,true,0,false);
+            dog2.setNumBitten(5);
+            cout << "Dog #2" << endl << dog2 << endl << endl;  
+            auto dog3 = Dog();
+            dog3.setName("Booby");
+            dog3.setBreed("Mixed Breed");
+            dog3.setSize(LARGE);
+            dog3.setIsRegistered(false);
+            dog3.setNumBitten(0);
+            dog3.setIsRabid(false);
+            cout << "Dog #3: " << dog3.getName() << " is " 
+                 << (dog3.isDangerous() ? "\033[1;31mDangerous\033[1;0m" : "\033[1;34mBenign\033[1;0m")
+                 << ", it is " << _to_lower(dog3.getIsRegistered() ? "registered" : "unregistered")
+                 << ", has bitten " << dog3.getNumBitten() << " people, and is "
+                 << (dog3.getIsRabid() ? "rabid." : "not rabid.") << endl << endl;
+            auto dog4 = Dog();
+            dog4.setName("Pogi");
+            dog4.setBreed("Askal");
+            dog4.setIsRegistered(false);
+            dog4.setNumBitten(100);
+            dog4.setIsRabid(true);
+            cout << "Dog #4: " << dog4.getName() << " is " 
+                 << (dog4.isDangerous() ? "\033[1;31mDangerous\033[1;0m" : "\033[1;34mBenign\033[1;0m")
+                 << ", it is " << _to_lower(dog4.getIsRegistered() ? "registered" : "unregistered")
+                 << ", has bitten " << dog4.getNumBitten() << " people, and is "
+                 << (dog4.getIsRabid() ? "rabid." : "not rabid.") << endl << endl;
             _flush_inputs();
             _pause("Press any key to return to the Menu...");
 
         } else if (ans == '2') {
-            _clrscr();
+            /*_clrscr();
             for (auto i = 1; i <= 3; i++) {
                 string name; string gens; bool genb; short age; string occu; 
                 cout << endl << "Enter your name: ";
@@ -86,36 +94,12 @@ int main() {
                 if (i < 3) _pause();
             }
             _flush_inputs();
-            _pause("Press any key to return to the Menu... ");
+            _pause("Press any key to return to the Menu... ");*/
 
-        } else if (ans == '3') {
-            do {
-                _clrscr();
-                string tmp;
-                auto p = Polygon();
-                cout << endl << "Enter polygon name: ";
-                getline(cin,tmp);
-                p.setName(tmp);
-                cout << endl << "Enter number of sides: ";
-                cin >> tmp;
-                p.setSideNum(stoi(tmp));
-                cout << endl << "Enter length of sides: ";
-                cin >> tmp;
-                p.setSideLength(stod(tmp));
-                cout << endl << "Enter polygon color: ";
-                cin >> tmp;
-                p.setColor(tmp);
-                cout << endl << "Here is your Polygon: " << endl << p << endl << endl;
-                _flush_inputs();
-                cout << "Press Q to return to the Menu or any other key to continue: ";
-                char a = (char) getchar();
-                if (a == 'q' || a == 'Q') break;
-            } while (true);
-            _flush_inputs();
         } else if (ans == 'q' || ans == 'Q') {
             break;
         }    
-    } while (true);*/
+    } while (true);
     
     _nap();
     _clrscr();

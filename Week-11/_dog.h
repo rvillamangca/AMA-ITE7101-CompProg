@@ -18,7 +18,7 @@
 #include "_helpers.h"
 
 
-typedef enum { SMALL, MEDIUM, LARGE, HUMONGOUS, } DogSize;
+typedef enum { SMALL, MEDIUM, LARGE, XLARGE, } DogSize;
 
 class Dog : LeggedMammal
 {
@@ -35,6 +35,7 @@ private:
     using LeggedMammal::setSpecies;
     using LeggedMammal::setLegNumber;
     using LeggedMammal::setHasTail;
+
 
 public:
     // constructor
@@ -56,7 +57,7 @@ public:
     bool getIsRabid(void);
 
     // other methods
-    bool isLethal(void);
+    bool isDangerous(void);
 
 // friends:
     friend std::ostream &operator<<(std::ostream&, Dog&);
@@ -81,8 +82,17 @@ Dog::Dog(std::string name, std::string breed, std::string furKind, DogSize size,
     void Dog::setBreed(std::string breed) { this->breed = breed; }
     void Dog::setSize(DogSize size) { this->size = size; }
     void Dog::setIsRegistered(bool isRegistered) { this->isRegistered = isRegistered; }
-    void Dog::setNumBitten(short numBitten) { this->numBitten = numBitten; }
-    void Dog::setIsRabid(bool isRabid) { this->isRabid = isRabid; }
+
+    void Dog::setNumBitten(short numBitten) { 
+        this->numBitten = numBitten;
+        this->isDangerous(); 
+    }
+
+    void Dog::setIsRabid(bool isRabid) { 
+        this->isRabid = isRabid; 
+        this->isDangerous();
+    }
+
     std::string Dog::getName(void) { return this->name; }
     std::string Dog::getBreed(void) { return this->breed; }
     DogSize Dog::getSize(void) { return this->size; }
@@ -90,24 +100,24 @@ Dog::Dog(std::string name, std::string breed, std::string furKind, DogSize size,
     short Dog::getNumBitten(void) { return this->numBitten; }
     bool Dog::getIsRabid(void) {return this->isRabid; }
 
-    bool Dog::isLethal() {
+    bool Dog::isDangerous() {
         return (this->numBitten >= 10) || (this->isRabid);
     }
 
 
     std::ostream &operator<<(std::ostream &o, Dog &d) {
-        std::vector<std::string> dogSize = {"Small", "Medium", "Large", "Huge"};
+        std::vector<std::string> dogSize = {"Small Dog", "Medium-built Dog", "Large Dog", "Huge Dog"};
         std::string c = "\033[1;0m";
-        o  << "-------------------------------------\n"
-           << c << "    Member of Dog Class" << c << "\n" 
-           << "-------------------------------------\n"
-           << "  Name:\t\t" << d.getName() << "\n"
+        o  << "---------------------------------------------\n"
+           << "\033[1;32m" << "            Member of Dog Class" << "\033[1;0m" << "\n" 
+           << "---------------------------------------------\n"
+           << "  Name:\t\t\t" << d.getName() << "\n"
            << "  Species:\t\t" << d.getSpecies() << "\n"
-           << "  Breed:\t" << d.getBreed() << "\n"
+           << "  Breed:\t\t" << d.getBreed() << "\n"
            << "  Fur Kind:\t\t" << d.getFurKind() << "\n"
            << "  Stature:\t\t" << dogSize[d.getSize()] << "\n"
-           << "  Is Registered:\t\t" << (d.getIsRegistered() ? "Yes" : "No") << "\n"
-           << "  Threat Level:\t\t" << (d.isLethal() ? "Lethal" : "Benign") << "\n"
-           << "-------------------------------------";
+           << "  Registered:\t\t" << (d.getIsRegistered() ? "Yes" : "No") << "\n"
+           << "  Threat Level:\t\t" << (d.isDangerous() ? "\033[1;31mDangerous\033[1;0m" : "\033[1;34mBenign\033[1;0m") << "\n"
+           << "----------------------------------------------";
         return o;
     }
