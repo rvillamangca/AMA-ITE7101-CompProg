@@ -29,7 +29,7 @@ private:
     std::string occupation;
 
 public:
-    // constructor/destructor
+    // constructor
     Person(void);
     Person(std::string, bool, short, std::string);
 

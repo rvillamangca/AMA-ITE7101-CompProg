@@ -33,10 +33,9 @@ private:
     bool isFurKind(std::string);
 
 public:
-    // constructor/destructor
+    // constructor
     LeggedMammal(void);
     LeggedMammal(std::string, short, std::string, bool);
-    ~LeggedMammal(void);
 
     // setters/getters
     void setSpecies(std::string);
@@ -66,8 +65,6 @@ LeggedMammal::LeggedMammal(std::string species, short legNumber, std::string fur
     this->setFurKind(furKind);
     this->setHasTail(hasTail);
 }
-
-LeggedMammal::~LeggedMammal() { std::cout << this->species << " is destroyed!!!\n"; }
 
 void LeggedMammal::setSpecies(std::string species) { this->species = species; }
 void LeggedMammal::setLegNumber(short legNumber) { this->legNumber = legNumber; }
