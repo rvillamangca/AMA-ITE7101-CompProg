@@ -5,7 +5,7 @@
  *
  * @history:
  *  - 2023/08/29 - 09:50 | Draft
- *  - 2023/08/XX - 13:42 | Final
+ *  - 2023/08/30 - 20:42 | Final
  * ************************************************************************************/
 
 #include <iostream>             // to basic input/output
@@ -13,11 +13,8 @@
 #include <array>                // to access the STL array class methods
 #include <cmath>                // to access basic math functions
 #include "_helpers.h"           // to access the helper functions
-//#include "_legged_mammal.h"     // to access the Legged Mammal class
-//#include "_person.h"            // to access the Person class
-//#include "_polygon.h"           // to access the Polygon class
-#include "_dog.h"
-#include "_student.h"
+#include "_dog.h"               // to access the Dog class
+#include "_student.h"           // to access the Student class
 
 using namespace std;
 
@@ -67,45 +64,24 @@ int main() {
             _pause("Press any key to return to the Menu...");
 
         } else if (ans == '2') {
-            Student s;
-
-            cout << s;
-            _flush_inputs();
-            _pause();
-            /*_clrscr();
             for (auto i = 1; i <= 3; i++) {
-                string name; string gens; bool genb; short age; string occu; 
-                cout << endl << "Enter your name: ";
-                getline(cin,name);
+                _clrscr();
+                cout << "Please provide Student #" << i << " info..." << endl << endl;
+                _nap();
+                auto s = studentFromInput();
+                cout << endl << s << endl;
+                _sleep();
                 _flush_inputs();
-                cout << endl << "Enter your gender: ";
-                cin >> gens;
-                if (_to_lower(gens)=="woman" || _to_lower(gens)=="lady" 
-                    || _to_lower(gens)=="girl" || _to_lower(gens)=="female") {
-                    genb = FEMALE;
-                } else {
-                    genb = MALE;
-                }
-                _flush_inputs();
-                cout << endl << "Enter your age: ";
-                cin >> age;
-                _flush_inputs();
-                cout << endl << "Enter your occupation: ";
-                cin >> occu;
-                _flush_inputs();
-                auto person = Person(name,genb,age,occu);
-                cout << endl << "Here is your Bio: " << endl << person << endl << endl;
-                if (i < 3) _pause();
             }
             _flush_inputs();
-            _pause("Press any key to return to the Menu... ");*/
-
+            _pause("Press any key to return to the Menu... ");
+            
         } else if (ans == 'q' || ans == 'Q') {
             break;
         }    
     } while (true);
     
-    _nap();
+    _sleep();
     _clrscr();
 
     return 0;

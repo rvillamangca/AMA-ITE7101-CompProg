@@ -14,7 +14,7 @@
 
 typedef enum { SMALL, MEDIUM, LARGE, XLARGE, } DogSize;
 
-class Dog : LeggedMammal
+class Dog : public LeggedMammal
 {
 private:
     // regular properties

@@ -5,7 +5,7 @@
  *
  * @history:
  *  - 2023/08/30 - 11:03 | Draft
- *  - 2023/08/30 -  | Final
+ *  - 2023/08/30 - 20:15 | Final
  * ************************************************************************************/
 
 #pragma once    // instead of “#ifndef – #define – #endif” combination
@@ -131,9 +131,11 @@ Student studentFromInput() {
  }
 
 std::ostream &operator<<(std::ostream &o, Student &s) {
-    o  << "------------------------------------------\n"
-       << "      \033[1;31m" << s.getUniversity() << "\033[1;34m | Student Info \033[1;0m \n" 
-       << "------------------------------------------\n"
+    std::string bar = std::string(s.getUniversity().length()+28,'-');
+    o  << bar << "\n"
+       << std::string((bar.length()-s.getUniversity().length()-15)/2,' ') 
+       << "\033[1;31m" << s.getUniversity() << "\033[1;34m | Student Info \033[1;0m \n" 
+       << bar << "\n"
        << "  Name:\t\t\t" << s.getName() << "\n"
        << "  Gender:\t\t" << (s.getGender() ? "Female" : "Male") << "\n"
        << "  Age:\t\t\t" << s.getAge() << "\n"
@@ -141,6 +143,6 @@ std::ostream &operator<<(std::ostream &o, Student &s) {
        << "  Year Name:\t\t" << s.yearName() << "\n"
        << "  Units Enrolled:\t" << s.getUnits() << "\n"
        << "  Total Tuition Fee:\t" << s.totalTuition() << "\n"
-       << "-------------------------------------------";
+       << bar << "\n";
     return o;
 }
