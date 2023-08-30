@@ -4,7 +4,7 @@
  * @app desc: Completion of a laboratory exercise for ITE-7101 (Computer Programming)
  *
  * @history:
- *  - 2023/08/29 - 09:50 | Draft 1
+ *  - 2023/08/29 - 09:50 | Draft
  *  - 2023/08/XX - 13:42 | Final
  * ************************************************************************************/
 
@@ -17,6 +17,7 @@
 //#include "_person.h"            // to access the Person class
 //#include "_polygon.h"           // to access the Polygon class
 #include "_dog.h"
+#include "_student.h"
 
 using namespace std;
 
@@ -48,8 +49,7 @@ int main() {
             dog3.setIsRegistered(false);
             dog3.setNumBitten(0);
             dog3.setIsRabid(false);
-            cout << "Dog #3: " << dog3.getName() << " is " 
-                 << (dog3.isDangerous() ? "\033[1;31mDangerous\033[1;0m" : "\033[1;34mBenign\033[1;0m")
+            cout << "Dog #3: " << dog3.getName() << " is " << dog3.threatLevel()
                  << ", it is " << _to_lower(dog3.getIsRegistered() ? "registered" : "unregistered")
                  << ", has bitten " << dog3.getNumBitten() << " people, and is "
                  << (dog3.getIsRabid() ? "rabid." : "not rabid.") << endl << endl;
@@ -59,8 +59,7 @@ int main() {
             dog4.setIsRegistered(false);
             dog4.setNumBitten(100);
             dog4.setIsRabid(true);
-            cout << "Dog #4: " << dog4.getName() << " is " 
-                 << (dog4.isDangerous() ? "\033[1;31mDangerous\033[1;0m" : "\033[1;34mBenign\033[1;0m")
+            cout << "Dog #4: " << dog4.getName() << " is " << dog4.threatLevel()
                  << ", it is " << _to_lower(dog4.getIsRegistered() ? "registered" : "unregistered")
                  << ", has bitten " << dog4.getNumBitten() << " people, and is "
                  << (dog4.getIsRabid() ? "rabid." : "not rabid.") << endl << endl;
@@ -68,6 +67,11 @@ int main() {
             _pause("Press any key to return to the Menu...");
 
         } else if (ans == '2') {
+            Student s;
+
+            cout << s;
+            _flush_inputs();
+            _pause();
             /*_clrscr();
             for (auto i = 1; i <= 3; i++) {
                 string name; string gens; bool genb; short age; string occu; 

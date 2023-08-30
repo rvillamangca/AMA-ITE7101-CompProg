@@ -33,7 +33,7 @@ private:
     bool isFurKind(std::string);
 
 public:
-    // constructor
+    // constructor/destructor
     LeggedMammal(void);
     LeggedMammal(std::string, short, std::string, bool);
 

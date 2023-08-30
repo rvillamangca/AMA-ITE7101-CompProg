@@ -44,7 +44,7 @@ public:
     std::string getOccupation(void);
 
     // methods
-    std::string ageRange();  
+    std::string ageRange(void);  
 };
 
 Person::Person() : Person("No Name",MALE,0,"None") { }
