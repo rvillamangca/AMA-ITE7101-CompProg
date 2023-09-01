@@ -130,7 +130,7 @@ std::ostream &operator<<(std::ostream &o, PaySlip &p){
        << "                   Employee Pay Slip\n" 
        << "-----------------------------------------------------\n"
        << "  Employee Name\t\t:\t" << p.name << "\n"
-       << "  Basic Salary\t\t:\t" << _dbl2str(p.basSal) << "\n"
+       << "  Basic Salary\t\t:\t" << "Php " << _dbl2str(p.basSal) << "\n"
        << "  Pay Grade\t\t:\t" << p.payGrd << "\n"
        << "  No. of OT Hours\t:\t" << _dbl2str(p.otHrs) << "\n"
        << "  OT Pay\t\t:\t" << "Php " << _dbl2str(p.otPay) << "\n"
