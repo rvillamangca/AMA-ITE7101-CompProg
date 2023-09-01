@@ -16,22 +16,22 @@ int main() {
     
     //cout << sizeof(int);
 
-    //char c[4] = "";
+    //char c[4] = {'i','t','!','\0'};
     //int *p = (int*) &c;
 
     //cout << *p << endl;
 
     //printf("%s",(uint8_t*) p);
 
-    int n[4] = { 6907988, 6889587, 6889587, 2105716 };
-    int *p = n;
+    int n[3] = { 1936287828, 544434464, 2192489 };
+    printf("%s\n",(uint8_t*) &n);
+    //fputs((uint8_t*) &n,stdout);
 
-    for (int i = 0; i < 4; i++) {
-        printf("%s",(uint8_t*) p);
-        p++;
-    }
+    //[54] [68] [69] [73] [20] [69] [73] [20] [69] [54] [21] [00];
 
-    printf("\n");
+    //int n[4] = { 6907988, 6889587, 6889587, 2105716 };
+    //for (int i = 0; i < 4; i++) printf("%s",(uint8_t*) &n[i]);
+    //printf("\n");
 
     return 0;
 }
