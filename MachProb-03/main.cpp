@@ -1,6 +1,6 @@
 /* ************************************************************************************
  * @author: Ramon Villamangca
- * @app name: Laboratory Exercise #009
+ * @app name: Machine Problem 003
  * @app desc: Completion of a laboratory exercise for ITE-7101 (Computer Programming)
  *
  * @history:
