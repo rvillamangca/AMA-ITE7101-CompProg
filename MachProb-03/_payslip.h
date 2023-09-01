@@ -61,8 +61,9 @@ public:
     double getWhTax(void);
     double getNetPay(void);
 
-    // overloaded assignment operator
+    // overloaded operators
     void operator=(const PaySlip&);
+    friend std::ostream &operator<<(std::ostream&, PaySlip&);
 };
 
 const double PaySlip::DED_VAL = 500 + 200 + 100;
@@ -77,13 +78,6 @@ PaySlip::PaySlip(std::string name, double basSal, double otHrs) {
     this->determinePayGradeAndTaxRate();
     this->computePay();
 }
-// PaySlip::PaySlip(PaySlip &p) {
-//     this->setName(p.getName());
-//     this->setBasSal(p.getBasSal());
-//     this->setOtHrs(p.getOtHrs());
-//     this->determinePayGradeAndTaxRate();
-//     this->computePay();
-// }
 
 void PaySlip::setName(std::string name) { this->name = name; }
 
@@ -110,9 +104,9 @@ double PaySlip::getNetPay() { return this->netPay; }
 
 void PaySlip::determinePayGradeAndTaxRate() {
     int i;
-    i = int(basSal) / 1000 % 10;
-    this->payGrd = basSal > 55000 ? 'B' : (i < 5 ? 'A' : 'B');
-    i = int(basSal) / 10000;
+    i = int(this->basSal) / 1000 % 10;
+    this->payGrd = this->basSal > 55000 ? 'B' : (i < 5 ? 'A' : 'B');
+    i = int(this->basSal) / 10000;
     this->rtTax = TAX_RATES[i > 5 ? 4 : (i-1)];
 }
 
@@ -126,28 +120,23 @@ void PaySlip::computePay() {
 void PaySlip::operator=(const PaySlip& p) {
     this->name = p.name;
     this->basSal = p.basSal;
-    this->otHrs = p.otHrs;
+    this->otHrs = p.otHrs; 
+    this->determinePayGradeAndTaxRate();
+    this->computePay();
 }
 
-// PaySlip operator=(PaySlip p1, PaySlip p2) {
-//     p1.setName(p2.getName());
-//     p1.setBasSal(p2.getBasSal());
-//     p1.setOtHrs(p2.getOtHrs());
-//     return p1;
-// }
-
 std::ostream &operator<<(std::ostream &o, PaySlip &p){
-    o  << "-----------------------------------------------\n"
-       << "                Employee Pay Slip\n" 
-       << "-----------------------------------------------\n"
-       << "  Employee Name\t\t:\t" << p.getName() << "\n"
-       << "  Basic Salary\t\t:\t" << _dbl2str(p.getBasSal()) << "\n"
-       << "  Pay Grade\t\t:\t" << p.getPayGrd() << "\n"
-       << "  No. of OT Hours\t:\t" << _dbl2str(p.getOtHrs()) << "\n"
-       << "  OT Pay\t\t:\t" << "Php " << _dbl2str(p.getOtPay()) << "\n"
-       << "  Gross Pay\t\t:\t" << "Php " << _dbl2str(p.getGrPay()) << "\n"
-       << "  Withholding Tax\t:\t" << "Php " << _dbl2str(p.getWhTax()) << "\n"
-       << "  Net Pay\t\t:\t" << "Php " << _dbl2str(p.getNetPay()) << "\n"
-       << "------------------------------------------------\n";
+    o  << "-----------------------------------------------------\n"
+       << "                   Employee Pay Slip\n" 
+       << "-----------------------------------------------------\n"
+       << "  Employee Name\t\t:\t" << p.name << "\n"
+       << "  Basic Salary\t\t:\t" << _dbl2str(p.basSal) << "\n"
+       << "  Pay Grade\t\t:\t" << p.payGrd << "\n"
+       << "  No. of OT Hours\t:\t" << _dbl2str(p.otHrs) << "\n"
+       << "  OT Pay\t\t:\t" << "Php " << _dbl2str(p.otPay) << "\n"
+       << "  Gross Pay\t\t:\t" << "Php " << _dbl2str(p.grPay) << "\n"
+       << "  Withholding Tax\t:\t" << "Php " << _dbl2str(p.whTax) << "\n"
+       << "  Net Pay\t\t:\t" << "Php " << _dbl2str(p.netPay) << "\n"
+       << "------------------------------------------------------\n";
     return o;
 }
