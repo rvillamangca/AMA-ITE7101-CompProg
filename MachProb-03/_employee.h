@@ -22,7 +22,7 @@
 class Employee
 {
 private:
-    // regular properties
+    // fields
     std::string name;
     bool gender;
     short age;
