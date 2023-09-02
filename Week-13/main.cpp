@@ -13,6 +13,7 @@
 using namespace std;
 
 int main() {
+    
     cout << endl <<" -- solution #1 --------------" << endl << endl;
 
         int i { 654321 };
