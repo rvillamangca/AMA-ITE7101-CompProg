@@ -105,11 +105,11 @@ void Reservation::calcPayments() {
 int Reservation::process() {
     std::vector<Reservation> vr;
     int rn;
-    auto isResNum = [&rn,vr](std::string s) {
+    auto isResNum = [&](std::string s) {
         if (s.substr(0,5) != "2023-") return false;
         if (s[5]<'1' || s[5]>'9') return false;
         int rn = std::stoi(s.substr(5,s.length()-5));
-        std::cout << "vr=" << vr.size();
+        //std::cout << "vr=" << vr[rn-1].getName();
         if (rn > vr.size()) return false;
         if (vr[rn-1].name == "") return false;
         return true;
@@ -160,8 +160,6 @@ int Reservation::process() {
             std::cout << "Your reservation has been registered successfully...\n"
                       << "Please take note of your reservation number: " << "\033[1;4m" << "2023-" << vr.size() << "\033[1;0m" << "\n";
 
-            std::cout << (vr[0].name=="") << "\n";
-
             _flush_inputs();
             _pause("Press any key to return to the Menu...");
 
@@ -179,9 +177,11 @@ int Reservation::process() {
                 _nap();
                 continue;
             }
+            std::cout << rn << "\n";
             vr[rn-1].name = "";
             std::cout << "Reservation no. " << s << " is succefully cancelled.\n";
-            _flush_inputs();            
+            _flush_inputs(); 
+            _pause("Press any key to return to the Menu... ");           
         } else if (ans == '3') {
             _flush_inputs();
             _pause("Press any key to return to the Menu... ");
