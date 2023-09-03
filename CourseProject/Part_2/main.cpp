@@ -1,6 +1,6 @@
 /* ************************************************************************************
  * @author: Ramon Villamangca
- * @app name: Machine Problem 003
+ * @app name: Course Project
  * @app desc: Completion of a laboratory exercise for ITE-7101 (Computer Programming)
  *
  * @history:
@@ -10,19 +10,10 @@
 
 #include <iostream>             // to basic input/output
 #include "_helpers.h"           // to access the helper functions
-#include "_employee.h"          // to access the Employee class
-#include "_payslip.h"           // to access the Pay Slip class
+#include "_reservation.h"       // to access the Hotel Reservation class
 
 using namespace std;
 
 int main() {
-    _clrscr();
-
-    cout << endl << "-------------------------------------" << endl;
-    cout << "      Employee Payslip Program" << endl;
-    cout << "-------------------------------------" << endl << endl;
-    
-    _pause();
-
-    return Employee::main();
+    return Reservation::process();
 }
