@@ -14,6 +14,4 @@
 
 using namespace std;
 
-int main() {
-    return Reservation::process();
-}
+int main() { return Reservation::process(); }

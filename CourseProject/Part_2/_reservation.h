@@ -4,8 +4,8 @@
  * @app desc: Completion of a laboratory exercise for ITE-7101 (Computer Programming)
  *
  * @history:
- *  - 2023/09/02 - 08:55 | Draft
- *  - 2023/09/0X -    XX | Final
+ *  - 2023/09/02 - 20:55 | Draft
+ *  - 2023/09/03 - 21:50 | Final
  * ************************************************************************************/
 
 #pragma once    // instead of “#ifndef – #define – #endif” combination
@@ -39,7 +39,7 @@ private:
 
 public:
     // constructor
-    Reservation(void);                                  // default constructor
+    Reservation(void);                                   // default constructor
     Reservation(std::string, int, int, double, short);   // complete constructor
 
     // setters
@@ -56,11 +56,11 @@ public:
     double getDays(void);
     short getResNo(void);
 
-    // methods
-    static int process(void); // main class method
-
     // overloaded operators
     friend std::ostream &operator<<(std::ostream&, Reservation&);
+
+    // main class method
+    static int process(void);
 };
 
 const int Reservation::MIN_AGE = 18;
@@ -102,101 +102,6 @@ void Reservation::calcPayments() {
     this->balPay = (this->totPay) - (this->downPay);
 }
 
-int Reservation::process() {
-    std::vector<Reservation> vr;
-    int rn;
-    auto isResNum = [&](std::string s) {
-        if (s.substr(0,5) != "2023-") return false;
-        if (s[5]<'1' || s[5]>'9') return false;
-        int rn = std::stoi(s.substr(5,s.length()-5));
-        //std::cout << "vr=" << vr[rn-1].getName();
-        if (rn > vr.size()) return false;
-        if (vr[rn-1].name == "") return false;
-        return true;
-    };
-
-    do {
-        _clrscr();
-        std::cout << "\n" << "---" << "\033[1;32m" << " Hotel Reservation Program "; 
-        std::cout << "\033[1;0m" << "-----------------------\n\n";
-        std::cout << "   1. Create New Reservation" << "\n";
-        std::cout << "   2. Cancel an Existing Reservation" << "\n";
-        std::cout << "   3. Show an Existing Reservation" << "\n";
-        std::cout << "   Q: Exit Program" << "\n" << "\n";
-        std::cout << "------------------------------------------------------\n\n";
-        std::cout << "Select the number of the action you want to do or 'Q' to quit: ";
-        char ans = (char) getchar();
-
-
-        if (ans == '1') {
-            _clrscr();
-            std::string name; int age; int guestNo; double days;
-
-            std::cout << "Please Enter Your Name: ";
-            std::getline(std::cin,name);
-            _flush_inputs();
-            std::cout << "\n";
-
-            std::cout << "Please Enter Your Age: ";
-            std::cin >> age;
-            _flush_inputs();
-            if (age < Reservation::MIN_AGE) {
-                std::cout << "You are too young to do reservation. Goodbye...\n";
-                _nap();
-                continue;
-            }
-            std::cout << "\n";
-
-            std::cout << "Please Enter the Number of Guest/s: ";
-            std::cin >> guestNo;
-            _flush_inputs();
-
-            std::cout << "Please Enter the Number of Day/s to reserve: ";
-            std::cin >> days;
-            _flush_inputs();
-
-            vr.push_back(Reservation(name,age,guestNo,days,vr.size()+1));
-
-            std::cout << "Your reservation has been registered successfully...\n"
-                      << "Please take note of your reservation number: " << "\033[1;4m" << "2023-" << vr.size() << "\033[1;0m" << "\n";
-
-            _flush_inputs();
-            _pause("Press any key to return to the Menu...");
-
-        } else if (ans == '2') {
-            _clrscr();
-            std::string s;
-            //Reservation p = nullptr;
-            std::cout << "Please enter your Reservation Number (format is \"2023-X\"): ";
-            std::getline(std::cin,s);
-            _flush_inputs();
-            std::cout << "\n";
-            if (!isResNum(s)) {
-                //std::cout << s.substr(5,s.length()-5) << "   ";
-                std::cout << "That's and invalid Reservation Number. Goodbye...\n";
-                _nap();
-                continue;
-            }
-            std::cout << rn << "\n";
-            vr[rn-1].name = "";
-            std::cout << "Reservation no. " << s << " is succefully cancelled.\n";
-            _flush_inputs(); 
-            _pause("Press any key to return to the Menu... ");           
-        } else if (ans == '3') {
-            _flush_inputs();
-            _pause("Press any key to return to the Menu... ");
-            
-        } else if (ans == 'q' || ans == 'Q') {
-            break;
-        } 
-    } while(true);
-
-    _sleep();
-    _clrscr();
-
-    return 0;
-}
-
 std::ostream &operator<<(std::ostream &o, Reservation &r){
     o  << "-------------------------------------------------\n"
        << "\033[1;31m" << "              Hotel Reservation Slip" << "\033[1;0m" << "\n" 
@@ -213,4 +118,109 @@ std::ostream &operator<<(std::ostream &o, Reservation &r){
        << "  Balance Payment\t:\t" << "Php " << _dbl2str(r.balPay) << "\n"
        << "-------------------------------------------------\n";
     return o;
+}
+
+int Reservation::process() {
+    std::vector<Reservation*> resVec;
+    int rn;
+
+    auto isResNum = [&](std::string s) {
+        if (s.substr(0,5) != "2023-") return false;
+        if (s[5]<'1' || s[5]>'9') return false;
+        rn = std::stoi(s.substr(5,s.length()-5));
+        if (rn > resVec.size()) return false;
+        if (resVec[rn-1]==nullptr) return false;
+        return true;
+    };
+
+    do {
+        _clrscr();
+        std::cout << "\n" << "---" << "\033[1;32m" << " Hotel Reservation Program "; 
+        std::cout << "\033[1;0m" << "-----------------------\n\n";
+        std::cout << "   1. Create New Reservation" << "\n";
+        std::cout << "   2. Cancel an Existing Reservation" << "\n";
+        std::cout << "   3. Extend an Existing Reservation" << "\n";
+        std::cout << "   4. Print an Existing Reservation" << "\n";
+        std::cout << "   Q: Exit Program" << "\n" << "\n";
+        std::cout << "------------------------------------------------------\n\n";
+        std::cout << "Select the number of the action you want to do or 'Q' to quit: ";
+        char ans = (char) getchar();
+        _flush_inputs();
+
+        if (ans == '1') {
+            std::cout << "\n";
+            std::string name; int age; int guestNo; double days;
+
+            std::cout << "Please Enter Your Name: ";
+            std::getline(std::cin,name);
+            _flush_inputs();
+
+            std::cout << "Please Enter Your Age: ";
+            std::cin >> age;
+            _flush_inputs();
+            if (age < Reservation::MIN_AGE) {
+                std::cout << "\nYou are too young to do reservation. Goodbye...\n";
+                _nap();
+                continue;
+            }
+
+            std::cout << "Please Enter the Number of Guest/s: ";
+            std::cin >> guestNo;
+            _flush_inputs();
+
+            std::cout << "Please Enter the Number of Day/s to reserve: ";
+            std::cin >> days;
+            _flush_inputs();
+
+            Reservation *p = new Reservation(name,age,guestNo,days,resVec.size()+1);
+
+            resVec.push_back(p);
+
+            std::cout << "\nYour reservation has been registered successfully...\n"
+                      << "Please take note of your reservation number: " 
+                      << "\033[1;4m" << "2023-" << resVec.size() << "\033[1;0m" << "\n\n";
+
+            _flush_inputs();
+            _pause("Press any key to return to the Menu...");
+        } else if (ans > 1 && ans <= '4') {
+            std::string s;
+            std::cout << "\nPlease enter your Reservation Number (format is \"2023-X\"): ";
+            std::getline(std::cin,s);
+            _flush_inputs();
+
+            if (!isResNum(s)) {
+                std::cout << "That's an invalid Reservation Number. Goodbye...\n";
+                _nap();
+                continue;
+            }
+
+            if (ans == '2') {
+                delete(resVec[rn-1]);
+                resVec[rn-1] = nullptr;
+                std::cout << "\nReservation no. " << s << " is succefully cancelled.\n\n";
+            } else if (ans == '3') {
+                double ext;
+                std::cout << "Please Enter the Number of Day/s to extend: ";
+                std::cin >> ext;
+                double old = resVec[rn-1]->getDays();
+                resVec[rn-1]->setDays(old+ext);
+                std::cout << "\nReservation no. " << s << " is succefully extended from " 
+                         << old << " to " << old+ext << " days.\n\n";
+            } else {
+                _clrscr();
+                std::cout << "\nPlease find below your reservation:\n\n"
+                          << *(resVec[rn-1]) << "\n\n";
+            }
+
+            _flush_inputs(); 
+            _pause("Press any key to return to the Menu... ");           
+        } else if (ans == 'q' || ans == 'Q') {
+            break;
+        } 
+    } while(true);
+
+    _sleep();
+    _clrscr();
+
+    return 0;
 }
