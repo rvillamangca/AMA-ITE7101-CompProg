@@ -172,9 +172,7 @@ int Reservation::process() {
             std::cin >> days;
             _flush_inputs();
 
-            Reservation *p = new Reservation(name,age,guestNo,days,resVec.size()+1);
-
-            resVec.push_back(p);
+            resVec.push_back(new Reservation(name,age,guestNo,days,resVec.size()+1));
 
             std::cout << "\nYour reservation has been registered successfully...\n"
                       << "Please take note of your reservation number: " 
@@ -182,7 +180,7 @@ int Reservation::process() {
 
             _flush_inputs();
             _pause("Press any key to return to the Menu...");
-        } else if (ans > 1 && ans <= '4') {
+        } else if (ans > '1' && ans <= '4') {
             std::string s;
             std::cout << "\nPlease enter your Reservation Number (format is \"2023-X\"): ";
             std::getline(std::cin,s);
