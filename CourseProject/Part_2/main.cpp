@@ -14,4 +14,28 @@
 
 using namespace std;
 
-int main() { return Reservation::process(); }
+//int main() { return Reservation::process(); }
+
+void createReservation(vector<Reservation*> &);
+void cancelReservation(vector<Reservation*> &);
+void extendReservation(vector<Reservation*> &);
+void printReservation(vector<Reservation*> &);
+
+int main() {
+	std::vector<Reservation*> resVec;
+    int resNum = 0;
+
+    auto isResNum = [&](std::string s) {
+        if (s.substr(0,5) != "2023-") return false;
+        if (s[5]<'1' || s[5]>'9') return false;
+        resNum = std::stoi(s.substr(5,s.length()-5));
+        if (isResNum > resVec.size()) return false;
+        if (resVec[rn-1]==nullptr) return false;
+        return true;
+    };
+
+    void(*menu[4])(vector<Reservation*> &) = {createReservation, cancelReservation, extendReservation, printReservation};
+
+    
+
+}
