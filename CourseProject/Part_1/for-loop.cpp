@@ -13,7 +13,9 @@
 		return 0;
 	}
 	
-	/* for (<Intitiate iterator>; <set iterator limit>; <modify iterator in step>) { 
-			<code block>; 
-		} */
+	for (intitiate iterator; set condition; update iterator) { 
+			body or code block; 
+	}
+	
+	
 	

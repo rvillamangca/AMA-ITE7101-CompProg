@@ -4,19 +4,16 @@ using namespace std;
 
 int main(){
 	
-	// While Loop
+	// Do-While Loop
 	auto i = 0;
-	while(i < 10) {
-		cout << i + 1 << endl;
-		i++;
-	}
-	
-	return 0;
+	do {
+		cout << i << endl;
+	} while(++i <= 10);
 }
 
-/*while (<condition>) { 
-	<code block>
-	}*/
+	do { 
+		body or code block;
+	} while(set condition);
 	
 	
 	

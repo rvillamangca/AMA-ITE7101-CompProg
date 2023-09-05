@@ -6,17 +6,16 @@ int main(){
 	
 	// While Loop
 	auto i = 0;
-	while(i < 20) {
-		i += 3;
+	while(++i <= 10) {
 		cout << i << endl;
 	}
 	
 	return 0;
 }
 
-/*while (<condition>) { 
-	<code block>
-	}*/
+	while (set condition) { 
+		body or code block; 
+	}
 	
 	
 	
