@@ -6,7 +6,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3254878f-1d99-4d2e-a408-e4a0ff10a8be" name="Changes" comment="" />
+    <list default="true" id="3254878f-1d99-4d2e-a408-e4a0ff10a8be" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../CourseProject/Part_1/for-each.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../CourseProject/Part_1/for-each.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CourseProject/VillamangcaRamon-CourseProject_ITE7101.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/../CourseProject/VillamangcaRamon-CourseProject_ITE7101.pptx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,6 +54,7 @@
       <workItem from="1693134308618" duration="13000" />
       <workItem from="1693134348362" duration="11000" />
       <workItem from="1693134416563" duration="4000" />
+      <workItem from="1694079435395" duration="9000" />
     </task>
     <servers />
   </component>
