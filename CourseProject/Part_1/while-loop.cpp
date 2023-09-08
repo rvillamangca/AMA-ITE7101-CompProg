@@ -1,21 +1,15 @@
 #include <iostream>
+#include <array>
 
 using namespace std;
 
-int main(){
-	
-	// While Loop
-	auto i = 0;
-	while(++i <= 10) {
-		cout << i << endl;
-	}
-	
-	return 0;
-}
+int main() {
+    
+    // C-style Array
+    int arr1[3] {1, 2, 3};
+    
+    // STL Array
+    array<char,3> arr2 {'a', 'b', 'c'};
 
-	while (set condition) { 
-		body or code block; 
-	}
-	
-	
-	
+    return 0;
+}
