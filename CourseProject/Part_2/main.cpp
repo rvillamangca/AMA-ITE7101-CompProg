@@ -10,4 +10,4 @@
 
 #include "_reservation.h"       // to access the Hotel Reservation class
 
-int main() { return Reservation::process(); }
+int main() { return hotres::process(); }
